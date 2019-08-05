@@ -9,7 +9,7 @@ const app = express();
 app.use(json());
 app.use(cors());
 
-app.get('/api/boards', boards.getTest);
+app.get('/api/boards', boards.getBoards);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
