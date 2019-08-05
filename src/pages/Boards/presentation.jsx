@@ -1,17 +1,13 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { Fragment } from 'react';
 
-const Boards = () => {
-  const [boards, setBoards] = useState([]);
-  useEffect(() => {
-    axios.get('http://localhost:3001/api/boards').then(res => setBoards(res.data));
-  }, []);
+const Boards = props => {
+  const { boards } = props;
 
   const displayBoards = boards && boards.map((board, i) => <p key={i}>{board}</p>);
 
   return (
     <Fragment>
-      <h3>Hi there!</h3>
+      <h2>TEST</h2>
       {displayBoards}
     </Fragment>
   );
