@@ -11,7 +11,7 @@ app.use(cors());
 
 // Boards
 app.get('/api/boards', boards.getBoards);
-app.post('/api/boards/:id', boards.addBoard);
+app.post('/api/boards', boards.addBoard);
 app.put('/api/boards/:id', boards.editBoard);
 app.delete('/api/boards/:id', boards.deleteBoard);
 

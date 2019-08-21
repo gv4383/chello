@@ -1,4 +1,3 @@
-let test = ['TEST', 'YEP', 'WOW'];
 let boards = [
   {
     id: 1,
@@ -17,52 +16,49 @@ let boards = [
   },
 ];
 
-let counter = 3;
-
-const getTest = (req, res) => res.status(200).send(test);
+let idCounter = 3;
 
 const getBoards = (req, res) => res.status(200).send(boards);
 
 const addBoard = (req, res) => {
   const { name, description } = req.body;
 
-  counter++;
+  idCounter++;
 
   let newBoard = {
-    id: counter,
+    id: idCounter,
     name,
     description,
   };
 
   boards = [...boards, newBoard];
 
-  return res.status(200);
+  return res.status(200).send('Successfully added new board.');
 };
 
 const editBoard = (req, res) => {
   const { id } = req.params;
   const { name, description } = req.body;
 
-  const boardIndex = boards.findIndex(board => board.id === id);
+  const boardIndex = boards.findIndex(board => board.id === parseInt(id, 10));
 
   boards[boardIndex].name = name;
   boards[boardIndex].description = description;
 
-  return res.status(200);
+  return res.status(200).send('Successfully edited board.');
 };
 
 const deleteBoard = (req, res) => {
   const { id } = req.params;
 
-  const boardIndex = boards.findIndex(board => board.id === id);
+  const boardIndex = boards.findIndex(board => board.id === parseInt(id, 10));
 
   boards.splice(boardIndex, 1);
 
-  return res.status(200);
+  return res.status(200).send('Successfully deleted board.');
 };
 
 module.exports = {
-  getTest,
   getBoards,
   addBoard,
   editBoard,
