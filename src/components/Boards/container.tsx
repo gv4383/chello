@@ -7,7 +7,7 @@ import { getBoards } from '../../redux/Actions/boardsActions';
 import BoardsPresentation from './presentation';
 
 interface Props {
-  boards: any[],
+  boards: any[];
   getBoards: typeof getBoards;
 }
 
@@ -20,11 +20,11 @@ const BoardsContainer = (props: Props) => {
   return <BoardsPresentation boards={boards} />;
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any) => ({
   boards: boards(state),
 });
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch: any) =>
   bindActionCreators(
     {
       getBoards,

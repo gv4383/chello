@@ -7,7 +7,7 @@ const initialFetchState = {
   isResolved: false,
 };
 
-const fetchReducer = (state = initialFetchState, action) => {
+const fetchReducer = (state = initialFetchState, action: any) => {
   switch (action.type) {
     case 'GET_BOARDS/LOADING':
       return { ...state, isLoading: true };

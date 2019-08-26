@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import boardsReducer from './reducers/boardsReducer';
 
-const enhancers = [];
+// const enhancers = [];
 
 // const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
 
@@ -11,7 +11,7 @@ const enhancers = [];
 
 const composedEnhancers = compose(
   applyMiddleware(thunk),
-  ...enhancers,
+  // ...enhancers,
 );
 
 const rootReducer = combineReducers({
