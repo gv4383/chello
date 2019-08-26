@@ -3,13 +3,13 @@ import axios from 'axios';
 import { baseUrl } from './config';
 
 const API = {
-  get: endpoint =>
+  get: (endpoint: string) =>
     axios(`${baseUrl}${endpoint}`, {
       method: 'GET',
     })
       .then(res => res.data)
       .catch(err => err),
-  post: (endpoint, payload) =>
+  post: (endpoint: string, payload: any) =>
     axios(`${baseUrl}${endpoint}`, {
       method: 'POST',
       headers: null,
@@ -17,7 +17,7 @@ const API = {
     })
       .then(res => res)
       .catch(err => err),
-  put: (endpoint, payload) =>
+  put: (endpoint: string, payload: any) =>
     axios(`${baseUrl}${endpoint}`, {
       method: 'POST',
       headers: null,
@@ -25,7 +25,7 @@ const API = {
     })
       .then(res => res)
       .catch(err => err),
-  delete: endpoint =>
+  delete: (endpoint: string) =>
     axios(`${baseUrl}${endpoint}`, {
       method: 'DELETE',
     })

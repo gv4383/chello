@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import BoardsContainer from './pages/Boards/container';
+import BoardsContainer from './components/Boards/container';
 
 const Routes = () => (
   <Switch>

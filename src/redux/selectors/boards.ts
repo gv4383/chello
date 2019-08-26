@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-export const boardsState = state => state.boards;
+export const boardsState = (state: any) => state.boards;
 
 export const fetchBoardsState = createSelector(
   boardsState,

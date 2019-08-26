@@ -6,7 +6,12 @@ import { boards } from '../../redux/selectors/boards';
 import { getBoards } from '../../redux/Actions/boardsActions';
 import BoardsPresentation from './presentation';
 
-const BoardsContainer = props => {
+interface Props {
+  boards: any[];
+  getBoards: typeof getBoards;
+}
+
+const BoardsContainer = (props: Props) => {
   const { boards, getBoards } = props;
   useEffect(() => {
     getBoards();
@@ -15,11 +20,11 @@ const BoardsContainer = props => {
   return <BoardsPresentation boards={boards} />;
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any) => ({
   boards: boards(state),
 });
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch: any) =>
   bindActionCreators(
     {
       getBoards,

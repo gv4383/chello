@@ -3,7 +3,7 @@ import actionCreator from '../lib/actionCreator';
 
 const getBoardsAction = actionCreator('GET_BOARDS');
 
-export const getBoards = () => dispatch => {
+export const getBoards = () => (dispatch: any) => {
   dispatch(getBoardsAction.loading());
   return API.get('/api/boards')
     .then(res => dispatch(getBoardsAction.success(res)))
