@@ -1,7 +1,12 @@
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import boardsReducer from './reducers/boardsReducer';
+import boards from './reducers/boards';
+import { BoardsState } from './types/boards';
+
+export interface AppState {
+  boards: BoardsState;
+}
 
 const enhancers = [];
 
@@ -15,7 +20,7 @@ const composedEnhancers = compose(
 );
 
 const rootReducer = combineReducers({
-  boards: boardsReducer,
+  boards,
 });
 
 const store = createStore(rootReducer, {}, composedEnhancers);

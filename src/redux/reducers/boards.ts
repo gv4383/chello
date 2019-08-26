@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const initialFetchState = {
+export const initialFetchState = {
   data: [],
   error: null,
   isLoading: false,
@@ -10,7 +10,11 @@ const initialFetchState = {
 const fetchReducer = (state = initialFetchState, action: any) => {
   switch (action.type) {
     case 'GET_BOARDS/LOADING':
-      return { ...state, isLoading: true };
+      return {
+        ...state,
+        isLoading: true,
+        isResolved: false,
+      };
     case 'GET_BOARDS/SUCCESS':
       return {
         ...state,
