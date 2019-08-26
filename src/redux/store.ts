@@ -5,9 +5,9 @@ import boardsReducer from './reducers/boardsReducer';
 
 const enhancers = [];
 
-const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
+// const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
 
-if (typeof devToolsExtension === 'function') enhancers.push(devToolsExtension());
+// if (typeof devToolsExtension === 'function') enhancers.push(devToolsExtension());
 
 const composedEnhancers = compose(
   applyMiddleware(thunk),
