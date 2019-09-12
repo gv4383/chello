@@ -1,16 +1,22 @@
 import { combineReducers } from 'redux';
+import { FetchBoardsState } from '../types/boards';
+import { Action } from '../store';
 
-const initialFetchState = {
+export const initialFetchState: FetchBoardsState = {
   data: [],
   error: null,
   isLoading: false,
   isResolved: false,
 };
 
-const fetchReducer = (state = initialFetchState, action: any) => {
+const fetchReducer = (state = initialFetchState, action: Action) => {
   switch (action.type) {
     case 'GET_BOARDS/LOADING':
-      return { ...state, isLoading: true };
+      return {
+        ...state,
+        isLoading: true,
+        isResolved: false,
+      };
     case 'GET_BOARDS/SUCCESS':
       return {
         ...state,

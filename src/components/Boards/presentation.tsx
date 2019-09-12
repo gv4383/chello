@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
+import { Board } from '../../redux/types/boards';
 
 interface Props {
-  boards: any[];
+  boards: Board[];
 }
 
 const Boards = (props: Props) => {

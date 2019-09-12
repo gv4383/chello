@@ -1,21 +1,32 @@
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import boardsReducer from './reducers/boardsReducer';
+import boards from './reducers/boards';
+import { BoardsState } from './types/boards';
 
-// const enhancers = [];
+export interface AppState {
+  boards: BoardsState;
+}
 
-// const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
+export interface Action {
+  type: string;
+  payload?: any;
+  error?: string;
+}
 
-// if (typeof devToolsExtension === 'function') enhancers.push(devToolsExtension());
+const enhancers = [];
+
+const devToolsExtension = (window as any).__REDUX_DEVTOOLS_EXTENSION__;
+
+if (typeof devToolsExtension === 'function') enhancers.push(devToolsExtension());
 
 const composedEnhancers = compose(
   applyMiddleware(thunk),
-  // ...enhancers,
+  ...enhancers,
 );
 
 const rootReducer = combineReducers({
-  boards: boardsReducer,
+  boards,
 });
 
 const store = createStore(rootReducer, {}, composedEnhancers);
