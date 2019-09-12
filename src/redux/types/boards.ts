@@ -6,7 +6,7 @@ export interface Board {
 
 export interface FetchBoardsState {
   data: Board[];
-  error: string | null;
+  error: any;
   isLoading: boolean;
   isResolved: boolean;
 }

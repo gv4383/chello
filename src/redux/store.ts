@@ -8,6 +8,12 @@ export interface AppState {
   boards: BoardsState;
 }
 
+export interface Action {
+  type: string;
+  payload?: any;
+  error?: string;
+}
+
 const enhancers = [];
 
 const devToolsExtension = (window as any).__REDUX_DEVTOOLS_EXTENSION__;
