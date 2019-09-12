@@ -4,10 +4,11 @@ import { bindActionCreators } from 'redux';
 
 import { boards } from '../../redux/selectors/boards';
 import { getBoards } from '../../redux/Actions/boards';
+import { Board } from '../../redux/types/boards';
 import BoardsPresentation from './presentation';
 
 interface Props {
-  boards: any[];
+  boards: Board[];
   getBoards: typeof getBoards;
 }
 
