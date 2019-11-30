@@ -5,20 +5,20 @@ import { bindActionCreators } from 'redux';
 import { boards } from '../../redux/selectors/boards';
 import { getBoards } from '../../redux/Actions/boards';
 import { Board } from '../../redux/types/boards';
-import BoardsPresentation from './presentation';
+import DashboardPresentation from './presentation';
 
 interface Props {
   boards: Board[];
   getBoards: typeof getBoards;
 }
 
-const BoardsContainer = (props: Props) => {
+const Dashboard = (props: Props) => {
   const { boards, getBoards } = props;
   useEffect(() => {
     getBoards();
   }, [getBoards]);
 
-  return <BoardsPresentation boards={boards} />;
+  return <DashboardPresentation boards={boards} />;
 };
 
 const mapStateToProps = (state: any) => ({
@@ -36,4 +36,4 @@ const mapDispatchToProps = (dispatch: any) =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(BoardsContainer);
+)(Dashboard);

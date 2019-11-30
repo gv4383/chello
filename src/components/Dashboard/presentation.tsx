@@ -1,21 +1,24 @@
 import React, { Fragment } from 'react';
 import { Board } from '../../redux/types/boards';
 
+import BoardCard from '../BoardCard';
+
 interface Props {
   boards: Board[];
 }
 
-const Boards = (props: Props) => {
+const Dashboard = (props: Props) => {
   const { boards } = props;
 
-  const displayBoards = boards && boards.map((board, i) => <p key={board.id}>{board.name}</p>);
+  const displayCards =
+    boards && boards.map((board: Board) => <BoardCard key={board.id} board={board} />);
 
   return (
     <Fragment>
       <h1>Hello there!</h1>
-      {displayBoards}
+      {displayCards}
     </Fragment>
   );
 };
 
-export default Boards;
+export default Dashboard;
